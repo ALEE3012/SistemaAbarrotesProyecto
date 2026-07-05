@@ -5,31 +5,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionSingleton {
-
     private static Connection conexion;
 
-    // Constructor privado para evitar instancias de la clase (Patrón Singleton)
+    private static final String URL = "jdbc:mysql://thomas.proxy.rlwy.net:26121/BD_Abarrotes";
+    private static final String USER = "root";
+    private static final String PASS = "vjYerGOFnXYpiBUVXovnLrVXdfkagavN"; // idealmente cámbiala después
+
     private ConexionSingleton() {
     }
 
     public static Connection getConexion() {
         try {
-            // Verificamos si la conexión es nula o se ha cerrado por inactividad
             if (conexion == null || conexion.isClosed()) {
-                
-                // 1. Cargar el Driver de MySQL (Obligatorio en aplicaciones web)
                 Class.forName("com.mysql.cj.jdbc.Driver");
-
-                // 2. Establecer la conexión usando tu URL, usuario y contraseña de MySQL
-                conexion = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/BD_Abarrotes",
-                        "root",
-                        "301223"
-                );
-                
+                conexion = DriverManager.getConnection(URL, USER, PASS);
                 System.out.println("✅ Conexión Singleton exitosa a MySQL");
             }
-
         } catch (ClassNotFoundException e) {
             System.out.println("❌ Error: No se encontró el Driver de MySQL (.jar)");
             e.printStackTrace();
@@ -39,7 +30,6 @@ public class ConexionSingleton {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return conexion;
     }
 }
