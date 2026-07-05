@@ -65,7 +65,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <% } %>
 
-<form action="VentaServlet" method="post">
+<form action="/VentaServlet" method="post">
 
 <input
 type="hidden"

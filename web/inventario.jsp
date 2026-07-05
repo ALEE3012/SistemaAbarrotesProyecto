@@ -86,7 +86,7 @@
                     <td><%= nombre %></td>
                     <td><%= stockActual %> uds</td>
                     <td>
-                        <form action="InventarioServlet" method="post" style="display:flex;gap:6px;align-items:center;">
+                        <form action="/InventarioServlet" method="post" style="display:flex;gap:6px;align-items:center;">
                             <input type="hidden" name="accion" value="minimo">
                             <input type="hidden" name="idProducto" value="<%= idProducto %>">
                             <input type="number" name="stockMinimo" min="0" value="<%= stockMinimo %>"

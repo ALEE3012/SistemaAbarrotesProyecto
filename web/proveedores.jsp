@@ -58,7 +58,7 @@
     <div class="panel">
         <h2><i class="fa-solid fa-<%= modoEdicion ? "pen" : "circle-plus" %>"></i> <%= modoEdicion ? "Editar proveedor" : "Nuevo proveedor" %></h2>
 
-        <form action="ProveedorServlet" method="post">
+        <form action="/ProveedorServlet" method="post">
             <input type="hidden" name="accion" value="<%= modoEdicion ? "editar" : "agregar" %>">
             <% if(modoEdicion){ %>
             <input type="hidden" name="idProveedor" value="<%= proveedorEditar.getIdProveedor() %>">
@@ -127,7 +127,7 @@
                             <a href="proveedores.jsp?editar=<%= p.getIdProveedor() %>" class="btn-editar" title="Editar">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
-                            <form action="ProveedorServlet" method="post" onsubmit="return confirm('¿Eliminar a <%= p.getRazonSocial() %>?');" style="display:inline;">
+                            <form action="/ProveedorServlet" method="post" onsubmit="return confirm('¿Eliminar a <%= p.getRazonSocial() %>?');" style="display:inline;">
                                 <input type="hidden" name="accion" value="eliminar">
                                 <input type="hidden" name="idProveedor" value="<%= p.getIdProveedor() %>">
                                 <button type="submit" class="btn-eliminar" title="Eliminar"><i class="fa-solid fa-trash"></i></button>

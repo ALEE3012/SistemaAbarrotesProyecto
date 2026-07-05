@@ -60,7 +60,7 @@
     <div class="panel">
         <h2><i class="fa-solid fa-<%= modoEdicion ? "user-pen" : "user-plus" %>"></i> <%= modoEdicion ? "Editar cliente" : "Nuevo cliente" %></h2>
 
-        <form action="ClienteServlet" method="post">
+        <form action="/ClienteServlet" method="post">
             <input type="hidden" name="accion" value="<%= modoEdicion ? "editar" : "agregar" %>">
             <% if(modoEdicion){ %>
             <input type="hidden" name="idCliente" value="<%= clienteEditar.getIdCliente() %>">
@@ -125,7 +125,7 @@
                             <a href="clientes.jsp?editar=<%= c.getIdCliente() %>" class="btn-editar" title="Editar">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
-                            <form action="ClienteServlet" method="post" onsubmit="return confirm('¿Eliminar a <%= c.getNombreCompleto() %>?');" style="display:inline;">
+                            <form action="/ClienteServlet" method="post" onsubmit="return confirm('¿Eliminar a <%= c.getNombreCompleto() %>?');" style="display:inline;">
                                 <input type="hidden" name="accion" value="eliminar">
                                 <input type="hidden" name="idCliente" value="<%= c.getIdCliente() %>">
                                 <button type="submit" class="btn-eliminar" title="Eliminar"><i class="fa-solid fa-trash"></i></button>

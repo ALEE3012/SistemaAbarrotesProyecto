@@ -74,7 +74,7 @@
         <div class="sub">Si escribes una categoría que no existe, se crea automáticamente. El stock inicial genera el registro de inventario.</div>
         <% } %>
 
-        <form action="ProductoServlet" method="post">
+        <form action="/ProductoServlet" method="post">
             <input type="hidden" name="accion" value="<%= modoEdicion ? "editar" : "agregar" %>">
             <% if(modoEdicion){ %>
             <input type="hidden" name="idProducto" value="<%= productoEditar.getIdProducto() %>">
@@ -201,7 +201,7 @@
                     <td>
                         <div class="acciones-fila">
                             <a href="productos.jsp?editar=<%= p[0] %>" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i></a>
-                            <form action="ProductoServlet" method="post" onsubmit="return confirm('¿Eliminar este producto?');" style="display:inline;">
+                            <form action="/ProductoServlet" method="post" onsubmit="return confirm('¿Eliminar este producto?');" style="display:inline;">
                                 <input type="hidden" name="accion" value="eliminar">
                                 <input type="hidden" name="idProducto" value="<%= p[0] %>">
                                 <button type="submit" class="btn-eliminar" title="Eliminar"><i class="fa-solid fa-trash"></i></button>

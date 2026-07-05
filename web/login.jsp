@@ -216,7 +216,7 @@ body{
         }
     %>
 
-    <form action="LoginServlet" method="post">
+    <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
 
         <div class="input-group">
             <i class="fa-solid fa-user"></i>
